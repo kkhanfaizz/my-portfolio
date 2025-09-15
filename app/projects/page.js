@@ -1,36 +1,51 @@
-export default function Projects() {
-  const projects = [
-    {
-      title: "Business Landing Page",
-      link: "https://business-landing-page-mu.vercel.app/", // apna deployed link
-    },
-    {
-      title: "Blog Website",
-      link: "https://blog-demo-delta.vercel.app/", // apna deployed link
-    },
-    {
-      title: "Ecommerce Website",
-      link: "https://ecommerce-frontend-ecru-pi.vercel.app/", // apna deployed link
-    },
-  ];
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
+const projects = [
+  {
+    id: 1,
+    title: "Business Landing Page",
+    desc: "A modern business landing page built with Next.js & Tailwind.",
+    demo: "https://business-landing-page-mu.vercel.app",
+    code: "https://github.com/kkhanfaizz/business-landing-page",
+  },
+  {
+    id: 2,
+    title: "Blog Website",
+    desc: "A blog website with multiple posts and a clean design.",
+    demo: "https://blog-demo-delta.vercel.app",
+    code: "https://github.com/kkhanfaizz/blog-demo",
+  },
+  {
+    id: 3,
+    title: "E-commerce Frontend",
+    desc: "E-commerce site with product listing and cart system.",
+    demo: "https://ecommerce-frontend-ecru-pi.vercel.app",
+    code: "https://github.com/kkhanfaizz/ecommerce-frontend",
+  },
+];
+
+export default function Projects() {
   return (
-    <div className="p-10">
-      <h2 className="text-3xl font-bold mb-6">Projects</h2>
-      <ul className="space-y-4">
-        {projects.map((p, i) => (
-          <li key={i} className="border p-4 rounded-lg hover:shadow-md">
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 font-semibold hover:underline"
-            >
-              {p.title}
-            </a>
-          </li>
+    <div>
+      <Navbar />
+      <h1 className="text-3xl font-bold text-center mt-10">My Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-10">
+        {projects.map((p) => (
+          <div key={p.id} className="border rounded-lg p-4 shadow">
+            <h2 className="text-xl font-semibold">{p.title}</h2>
+            <p className="text-gray-600">{p.desc}</p>
+            <div className="flex justify-between mt-3">
+              <Link href={p.demo} className="text-blue-600 hover:underline">
+                Live Demo
+              </Link>
+              <Link href={p.code} className="text-green-600 hover:underline">
+                Source Code
+              </Link>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
