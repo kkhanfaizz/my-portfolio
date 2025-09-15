@@ -8,6 +8,10 @@ export default function Projects() {
       title: "Blog Website",
       link: "https://blog-demo-delta.vercel.app/", // apna deployed link
     },
+    {
+      title: "Ecommerce Website",
+      link: "https://ecommerce-frontend-ecru-pi.vercel.app/", // apna deployed link
+    },
   ];
 
   return (
